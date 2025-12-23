@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PW Reaction</title>
+  <style>
+    .btn{
+      font-size: 16px;
+      cursor: pointer;
+      padding: 3px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body style="background:#020617; color:#ee7eb; font-family:sans-serif; padding:20px;">
+
+  <h2>PW Reaction Hack Made by Hiroshi (Gourav)</h2><br>
+   <input type="text" id="token" placeholder="Enter your auth token of PW Without Bearer" style="font-size: 16px; padding: 5px; width: 600px;"><br><br><br>
+  <input type="text" id="api" placeholder="Enter the url of api" style="font-size: 16px; padding: 5px; width: 600px;"><br><br><br>
+  <button id="likeBtn" class="btn">👍 Like </button>
+  <button id="heartBtn" class="btn">❤️ Heart</button>
+  <button id="laughBtn" class="btn">😂 Laugh</button>
+  <button id="fireBtn" class="btn">🔥 Fire</button>
+  <button id="blast" class="btn">💣 Blast</button>
+  <pre id="log" style="margin-top:20px;background:#0f172a; padding:10px; border-radius:8px;  white-space:pre-wrap;  color: white;"></pre>
+
+<script>
+
+  
+  // ⚠ yahan apna JWT token daalna (public me kabhi mat share karna)
+  
+
+
+  async function sendLike() {
+    const JWT_TOKEN = document.getElementById("token").value;
+    
+    const API_URL = document.getElementById("api").value
+    const log = document.getElementById("log");
+    log.textContent = "Sending...\n";
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${JWT_TOKEN}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json, text/plain, */*"
+        },
+        body: JSON.stringify({
+          reaction: true,
+          type: "like"
+        })
+      });
+
+      const text = await res.text();
+      let data;
+      try { data = JSON.parse(text); } catch { data = text; }
+
+      log.textContent += "Status: " + res.status + "\\n\\n" +
+        JSON.stringify(data, null, 2);
+    } catch (err) {
+      log.textContent += "ERROR: " + err.toString();
+    }
+  }
+
+
+  async function sendHeart() {
+    const JWT_TOKEN = document.getElementById("token").value;
+    const API_URL = document.getElementById("api").value
+    const log = document.getElementById("log");
+    log.textContent = "Sending...\n";
+       
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${JWT_TOKEN}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json, text/plain, */*"
+        },
+        body: JSON.stringify({
+          reaction: true,
+          type: "heart"
+        })
+      });
+
+      const text = await res.text();
+      let data;
+      try { data = JSON.parse(text); } catch { data = text; }
+
+      log.textContent += "Status: " + res.status + "\\n\\n" +
+        JSON.stringify(data, null, 2);
+    } catch (err) {
+      log.textContent += "ERROR: " + err.toString();
+    }
+  }
+
+  async function sendLaugh() {
+    const JWT_TOKEN = document.getElementById("token").value;
+    const API_URL = document.getElementById("api").value
+    const log = document.getElementById("log");
+    log.textContent = "Sending...\n";
+       
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${JWT_TOKEN}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json, text/plain, */*"
+        },
+        body: JSON.stringify({
+          reaction: true,
+          type: "laugh"
+        })
+      });
+
+      const text = await res.text();
+      let data;
+      try { data = JSON.parse(text); } catch { data = text; }
+
+      log.textContent += "Status: " + res.status + "\\n\\n" +
+        JSON.stringify(data, null, 2);
+    } catch (err) {
+      log.textContent += "ERROR: " + err.toString();
+    }
+  }
+
+async function sendFire() {
+  const JWT_TOKEN = document.getElementById("token").value;
+    const API_URL = document.getElementById("api").value
+    const log = document.getElementById("log");
+    log.textContent = "Sending...\n";
+       
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${JWT_TOKEN}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json, text/plain, */*"
+        },
+        body: JSON.stringify({
+          reaction: true,
+          type: "fire"
+        })
+      });
+
+      const text = await res.text();
+      let data;
+      try { data = JSON.parse(text); } catch { data = text; }
+
+      log.textContent += "Status: " + res.status + "\\n\\n" +
+        JSON.stringify(data, null, 2);
+    } catch (err) {
+      log.textContent += "ERROR: " + err.toString();
+    }
+  }
+
+
+  async function sendSmile() {
+    const JWT_TOKEN = document.getElementById("token").value;
+    const API_URL = document.getElementById("api").value
+    const log = document.getElementById("log");
+    log.textContent = "Sending...\n";
+       
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${JWT_TOKEN}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json, text/plain, */*"
+        },
+        body: JSON.stringify({
+          reaction: true,
+          type: "smile"
+        })
+      });
+
+      const text = await res.text();
+      let data;
+      try { data = JSON.parse(text); } catch { data = text; }
+
+      log.textContent += "Status: " + res.status + "\\n\\n" +
+        JSON.stringify(data, null, 2);
+    } catch (err) {
+      log.textContent += "ERROR: " + err.toString();
+    }
+  }
+
+
+  document.getElementById("likeBtn").onclick = sendLike; // like bhi heart hi bhejega
+  document.getElementById("heartBtn").onclick = sendHeart;
+  document.getElementById("laughBtn").onclick = sendLaugh;
+  document.getElementById("fireBtn").onclick = sendLaugh;
+
+  document.getElementById("blast").addEventListener("click", async () => {
+
+  function delay(ms) {
+    return new Promise(res => setTimeout(res, ms));
+  }
+
+  for (let i = 0; i < 40; i++) {
+
+    sendSmile();
+    await delay(5);   // 200 ms delay
+
+    sendFire();
+    await delay(5);
+
+    sendHeart();
+    await delay(5);
+
+    sendLike();
+    await delay(5)
+
+    sendLaugh();
+    await delay(5);
+
+    sendSmile();
+    await delay(5);   // 200 ms delay
+
+    sendFire();
+    await delay(5);
+
+    sendHeart();
+    await delay(5);
+
+    sendLike();
+    await delay(5)
+
+    sendLaugh();
+    await delay(5);
+  }
+  
+
+});
+
+      
+  </script>
+</body>
+</html>
